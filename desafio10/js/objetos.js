@@ -58,6 +58,13 @@ $(document).ready(function () {
    $('#agrego').click(function(){
        alert('gracias por agregar sus productos')
    })
+   $('h1').prepend('desafio 10 jquerry con animacion');
+   $(document).ready(function(){
+       $('#termino').click(function(){
+           $('#registros').fadeOut(alert('vuelva pronto'));
+           
+       })
+   })
  
 });
 
