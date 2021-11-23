@@ -5,19 +5,23 @@ document.getElementById("registrarse").addEventListener("click", registrarse);
 window.addEventListener("resize", tamañoPagina);
 document.getElementById("formulario")
 
+
+
 //Declarando variables
+let ingresar = document.getElementById("ingreso")
+let agregarUsuario = document.getElementById("registro")
 let formulario_ingreso = document.querySelector(".formulario-ingreso");
 let formulario_registro = document.querySelector(".formulario-registro");
 let contenedor_ingreso_registro = document.querySelector(".contenedor-ingreso-registro");
 let caja_posterior_ingreso = document.querySelector(".caja-posterior-ingreso");
-let caja_posterior_registro = document.querySelector(".caja-posterior-registro");
-let nombre = document.getElementById("nombre")
-let correo = document.getElementById("correo")
-let usuario = document.getElementById("usuario")
-let contraseña = document.getElementById("contraseña")
+let caja_posterior_registro = document.querySelector(".caja-posterior-registro"); 
+
 let registrar = document.getElementById("registro")
 
 //FUNCIONES
+function iniciarSesion(){
+    event.preventDefault();
+}
 
 function tamañoPagina() {
 
@@ -66,3 +70,42 @@ function registrarse() {
         caja_posterior_ingreso.style.opacity = "1";
     }
 }
+
+
+
+
+function registerData(){
+            console.log(document.getElementById("regisName").value)
+            let userToSave = {
+                'name': document.getElementById("regisName").value,
+                'mail': document.getElementById("regisMail").value,
+                'pssw': document.getElementById("regisPssw").value
+            }
+            let jsonUser = JSON.stringify(userToSave);
+            localStorage.setItem('user', jsonUser);
+            console.log('this is  a test');
+        }
+
+
+
+
+        function login(){
+            event.preventDefault();
+            var storeUser = JSON.parse(localStorage.getItem('user'));
+            console.log(document.getElementById("loginMail").value)
+            console.log(storeUser.mail)
+            if( document.getElementById("loginMail").value == storeUser.mail){
+
+                if(document.getElementById("loginPssw").value == storeUser.pssw){
+                    window.location.href = "mapa.html";
+                }else{
+                    alert('Contraseña incorrecta');
+                }
+                console.log("TEST LOGIN")
+            }else{
+                alert('Usuario Incorrecto');
+            }
+        }
+
+
+

@@ -7,11 +7,11 @@
 }
 h1{
     text-align: center;
-    color:#46A2FD;
+    color:white;
 }
 
 body{
-    background-color: black;
+    background-color: #0b1533;
     
 }
 
@@ -114,6 +114,17 @@ main{
     border: none;
     background: #F2F2F2;
     font-size: 16px;
+    outline: none;
+}
+.iniciarSesion{
+    padding: 10px 40px;
+    margin-top: 40px;
+    border: none;
+    font-size: 14px;
+    background: #46A2FD;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
     outline: none;
 }
 
