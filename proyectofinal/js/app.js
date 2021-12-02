@@ -8,18 +8,16 @@ document.getElementById("formulario")
 
 
 //Declarando variables
-let ingresar = document.getElementById("ingreso")
-let agregarUsuario = document.getElementById("registro")
 let formulario_ingreso = document.querySelector(".formulario-ingreso");
 let formulario_registro = document.querySelector(".formulario-registro");
 let contenedor_ingreso_registro = document.querySelector(".contenedor-ingreso-registro");
 let caja_posterior_ingreso = document.querySelector(".caja-posterior-ingreso");
-let caja_posterior_registro = document.querySelector(".caja-posterior-registro"); 
+let caja_posterior_registro = document.querySelector(".caja-posterior-registro");
 
-let registrar = document.getElementById("registro")
+
 
 //FUNCIONES
-function iniciarSesion(){
+function iniciarSesion() {
     event.preventDefault();
 }
 
@@ -74,38 +72,35 @@ function registrarse() {
 
 
 
-function registerData(){
-            console.log(document.getElementById("regisName").value)
-            let userToSave = {
-                'name': document.getElementById("regisName").value,
-                'mail': document.getElementById("regisMail").value,
-                'pssw': document.getElementById("regisPssw").value
-            }
-            let jsonUser = JSON.stringify(userToSave);
-            localStorage.setItem('user', jsonUser);
-            console.log('this is  a test');
+function registerData() {
+    console.log(document.getElementById("regisName").value)
+    let userToSave = {
+        'name': document.getElementById("regisName").value,
+        'mail': document.getElementById("regisMail").value,
+        'pssw': document.getElementById("regisPssw").value
+    }
+    let jsonUser = JSON.stringify(userToSave);
+    localStorage.setItem('user', jsonUser);
+    console.log('this is  a test');
+}
+
+
+
+
+function login() {
+    event.preventDefault();
+    let storeUser = JSON.parse(localStorage.getItem('user'));
+    console.log(document.getElementById("loginMail").value)
+    console.log(storeUser.mail)
+    if (document.getElementById("loginMail").value == storeUser.mail) {
+
+        if (document.getElementById("loginPssw").value == storeUser.pssw) {
+            window.location.href = "tareas.html";
+        } else {
+            alert('Contraseña incorrecta');
         }
-
-
-
-
-        function login(){
-            event.preventDefault();
-            var storeUser = JSON.parse(localStorage.getItem('user'));
-            console.log(document.getElementById("loginMail").value)
-            console.log(storeUser.mail)
-            if( document.getElementById("loginMail").value == storeUser.mail){
-
-                if(document.getElementById("loginPssw").value == storeUser.pssw){
-                    window.location.href = "mapa.html";
-                }else{
-                    alert('Contraseña incorrecta');
-                }
-                console.log("TEST LOGIN")
-            }else{
-                alert('Usuario Incorrecto');
-            }
-        }
-
-
-
+        console.log("TEST LOGIN")
+    } else {
+        alert('Usuario Incorrecto');
+    }
+}
